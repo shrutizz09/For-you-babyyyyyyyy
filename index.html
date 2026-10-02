@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For You 💗</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #160b17;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+section {
+    min-height: 100vh;
+    display: none;
+    place-items: center;
+    padding: 24px;
+    text-align: center;
+    background: radial-gradient(
+        circle at 50% 10%,
+        #65264f,
+        #160b17 65%
+    );
+}
+
+section.active {
+    display: grid;
+}
+
+.card {
+    max-width: 430px;
+    width: 100%;
+}
+
+h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+p {
+    line-height: 1.7;
+    color: #f5dbea;
+}
+
+.btn {
+    border: none;
+    border-radius: 30px;
+    padding: 14px 24px;
+    margin: 12px 5px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.pink {
+    background: #ff82b2;
+    color: white;
+}
+
+.white {
+    background: white;
+    color: #42172f;
+}
+
+/* ENVELOPE */
+
+.envelope {
+    width: 240px;
+    height: 155px;
+    background: #f982ae;
+    margin: 35px auto;
+    position: relative;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 20px 50px #0008;
+}
+
+.flap {
+    position: absolute;
+    inset: 0 0 auto;
+    height: 95px;
+    background: #ffb4ce;
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        50% 75%
+    );
+}
+
+.seal {
+    font-size: 35px;
+    position: absolute;
+    left: 50%;
+    top: 55%;
+    transform: translate(-50%, -50%);
+}
+
+/* REASONS */
+
+.reasons {
+    display: grid;
+    gap: 12px;
+}
+
+.reason,
+.box {
+    background: #ffffff10;
+    border: 1px solid #fff2;
+    border-radius: 18px;
+    padding: 17px;
+    text-align: left;
+}
+
+.reason b {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.reason span {
+    color: #e9c8da;
+    font-size: 14px;
+}
+
+/* MUSIC */
+
+.disc {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 15px auto;
+
+    background:
+        radial-gradient(
+            circle,
+            #ffd9e8 0 10%,
+            #ff82b2 11% 25%,
+            #542447 26% 100%
+        );
+
+    animation: spin 4s linear infinite;
+    animation-play-state: paused;
+}
+
+.playing {
+    animation-play-state: running;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* PHOTOS */
+
+.photos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.photo {
+    height: 160px;
+    border-radius: 18px;
+    background: #74345f;
+    display: grid;
+    place-items: center;
+    font-size: 15px;
+}
+
+.full {
+    grid-column: 1 / -1;
+}
+
+/* LETTER */
+
+.letter {
+    background: #fff7fa;
+    color: #51243d;
+    text-align: left;
+    border-radius: 20px;
+    padding: 24px;
+}
+
+.letter p {
+    color: #51243d;
+}
+
+.script {
+    font-family: cursive;
+    font-size: 28px;
+}
+
+/* FINAL QUESTION */
+
+.choices {
+    position: relative;
+    height: 190px;
+}
+
+.choice {
+    position: absolute;
+    border: none;
+    border-radius: 30px;
+    padding: 14px 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.yes {
+    left: 25%;
+    background: #ff82b2;
+    color: white;
+}
+
+.no {
+    left: 58%;
+    background: white;
+    color: #42172f;
+}
+
+.result {
+    font-family: cursive;
+    font-size: 30px;
+    color: #ffd2e4;
+}
+
+/* DOTS */
+
+.dots {
+    position: fixed;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.dots span {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #ffffff33;
+    margin: 4px;
+}
+
+.dots .on {
+    background: white;
+}
+</style>
+</head>
+
+
+<body>
+
+<!-- PAGE 1 -->
+
+<section class="active">
+
+    <div class="card">
+
+        <small>A LITTLE SOMETHING FOR YOU</small>
+
+        <h1>Hey you... 💗</h1>
+
+        <p>
+            There's something waiting inside.
+        </p>
+
+        <div
+            class="envelope"
+            onclick="go(1)"
+        >
+
+            <div class="flap"></div>
+
+            <div class="seal">
+                💗
+            </div>
+
+        </div>
+
+        <button
+            class="btn pink"
+            onclick="go(1)"
+        >
+            Tap to open 💌
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- PAGE 2 -->
+
+<section>
+
+    <div class="card">
+
+        <small>CHAPTER ONE</small>
+
+        <h2>
+            Reasons I love you 🥹
+        </h2>
+
+        <div class="reasons">
+
+            <div class="reason">
+
+                <b>
+                    01 · You make ordinary days special.
+                </b>
+
+                <span>
+                    Even tiny moments become memories.
+                </span>
+
+            </div>
+
+
+            <div class="reason">
+
+                <b>
+                    02 · You make me smile.
+                </b>
+
+                <span>
+                    Sometimes without even trying.
+                </span>
+
+            </div>
+
+
+            <div class="reason">
+
+                <b>
+                    03 · I can be myself.
+                </b>
+
+                <span>
+                    That feeling means more than words.
+                </span>
+
+            </div>
+
+
+            <div class="reason">
+
+                <b>
+                    04 · You're simply you. ❤️
+                </b>
+
+                <span>
+                    My favourite reason of all.
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="btn pink"
+            onclick="go(2)"
+        >
+            There's more →
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- PAGE 3 -->
+
+<section>
+
+    <div class="card">
+
+        <small>CHAPTER TWO</small>
+
+        <h2>
+            Our little soundtrack 🎵
+        </h2>
+
+
+        <div class="box">
+
+            <div
+                class="disc"
+                id="disc"
+            ></div>
+
+            <p>
+                Put on a song that reminds you of us.
+            </p>
+
+
+            <button
+                class="btn pink"
+                onclick="music()"
+            >
+                ▶ Play
+            </button>
+
+
+            <p style="font-size:12px">
+
+                Add your MP3 as
+                <b>our-song.mp3</b>
+                beside index.html.
+
+            </p>
+
+        </div>
+
+
+        <button
+            class="btn white"
+            onclick="go(3)"
+        >
+            Next →
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- PAGE 4 -->
+
+<section>
+
+    <div class="card">
+
+        <small>CHAPTER THREE</small>
+
+        <h2>
+            Our memories 📸
+        </h2>
+
+        <p class="script">
+            a few pieces of us
+        </p>
+
+
+        <div class="photos">
+
+            <div class="photo">
+                📷 Photo 1
+            </div>
+
+            <div class="photo">
+                📷 Photo 2
+            </div>
+
+            <div class="photo full">
+                📷 Our favourite memory
+            </div>
+
+        </div>
+
+
+        <p style="font-size:12px">
+            Replace these boxes with your photos.
+        </p>
+
+
+        <button
+            class="btn pink"
+            onclick="go(4)"
+        >
+            Read my letter 💌
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- PAGE 5 -->
+
+<section>
+
+    <div class="card">
+
+        <small>CHAPTER FOUR</small>
+
+
+        <div class="letter">
+
+            <div class="script">
+                Dear you,
+            </div>
+
+
+            <p>
+                I don't always know how to say everything
+                I feel, so I made this little corner of the
+                internet instead.
+            </p>
+
+
+            <p>
+                Thank you for the laughs, conversations,
+                tiny moments and memories.
+            </p>
+
+
+            <p>
+                If I could keep one thing from all our
+                moments, it would be the feeling of being
+                happy just because you're there.
+            </p>
+
+
+            <p class="script">
+                You are very, very special to me. ❤️
+            </p>
+
+
+            <div class="script">
+                — From someone who loves you a lot ♡
+            </div>
+
+        </div>
+
+
+        <button
+            class="btn pink"
+            onclick="go(5)"
+        >
+            One last thing… 🔐
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- PAGE 6 -->
+
+<section>
+
+    <div class="card">
+
+        <small>CLASSIFIED</small>
+
+
+        <div class="box">
+
+            <h2>
+                🔐 Secret message
+            </h2>
+
+
+            <p id="intro">
+                Tap the lock to unlock it.
+            </p>
+
+
+            <button
+                class="btn pink"
+                id="unlock"
+                onclick="unlock()"
+            >
+                Unlock 💗
+            </button>
+
+
+            <div
+                id="secret"
+                style="display:none"
+            >
+
+                <p class="script">
+                    Psst…
+                </p>
+
+                <p>
+                    You are one of my favourite parts
+                    of my life. Let's keep collecting
+                    ridiculous, sweet, chaotic memories
+                    together. 🥹❤️
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="btn white"
+            onclick="go(6)"
+        >
+            One question… 👀
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- PAGE 7 -->
+
+<section>
+
+    <div class="card">
+
+        <small>
+            THE FINAL QUESTION
+        </small>
+
+
+        <h2>
+            Will you keep choosing us? 🥹❤️
+        </h2>
+
+
+        <p>
+            There is a very important button below.
+        </p>
+
+
+        <div
+            class="choices"
+            id="area"
+        >
+
+            <button
+                class="choice yes"
+                onclick="yes()"
+            >
+                YES ❤️
+            </button>
+
+
+            <button
+                class="choice no"
+                id="no"
+                onclick="moveNo()"
+            >
+                NO 😭
+            </button>
+
+        </div>
+
+
+        <div
+            id="result"
+            class="result"
+            style="display:none"
+        >
+            I knew itttt 😭❤️
+        </div>
+
+
+        <button
+            id="again"
+            class="btn white"
+            style="display:none"
+            onclick="go(0)"
+        >
+            Replay ↺
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- PAGE DOTS -->
+
+<div
+    class="dots"
+    id="dots"
+></div>
+
+
+<script>
+
+let n = 0;
+
+let sections =
+    [...document.querySelectorAll("section")];
+
+let dots =
+    document.getElementById("dots");
+
+
+/* CREATE PAGE DOTS */
+
+sections.forEach(
+    (_, i) => {
+
+        dots.innerHTML +=
+            `<span class="${i ? '' : 'on'}"></span>`;
+
+    }
+);
+
+
+/* CHANGE PAGE */
+
+function go(x) {
+
+    n = x;
+
+    sections.forEach(
+        (section, i) => {
+
+            section.classList.toggle(
+                "active",
+                i === x
+            );
+
+        }
+    );
+
+
+    [...dots.children].forEach(
+        (dot, i) => {
+
+            dot.classList.toggle(
+                "on",
+                i === x
+            );
+
+        }
+    );
+
+
+    window.scrollTo(
+        0,
+        0
+    );
+}
+
+
+/* MUSIC */
+
+function music() {
+
+    let audio = window.audio;
+
+    if (!audio) {
+
+        audio =
+            new Audio("our-song.mp3");
+
+        audio.loop = true;
+
+        window.audio = audio;
+
+    }
+
+
+    if (audio.paused) {
+
+        audio.play().catch(
+            () => {
+
+                alert(
+                    "Add our-song.mp3 to the GitHub repo first 💗"
+                );
+
+            }
+        );
+
+        document
+            .getElementById("disc")
+            .classList
+            .add("playing");
+
+    }
+
+    else {
+
+        audio.pause();
+
+        document
+            .getElementById("disc")
+            .classList
+            .remove("playing");
+
+    }
+
+}
+
+
+/* SECRET MESSAGE */
+
+function unlock() {
+
+    document
+        .getElementById("intro")
+        .style
+        .display = "none";
+
+
+    document
+        .getElementById("unlock")
+        .style
+        .display = "none";
+
+
+    document
+        .getElementById("secret")
+        .style
+        .display = "block";
+
+}
+
+
+/* MOVING NO BUTTON */
+
+function moveNo() {
+
+    let button =
+        document.getElementById("no");
+
+    let area =
+        document.getElementById("area");
+
+
+    button.style.left =
+        Math.random() *
+        (area.clientWidth - button.offsetWidth)
+        + "px";
+
+
+    button.style.top =
+        Math.random() *
+        (area.clientHeight - button.offsetHeight)
+        + "px";
+
+}
+
+
+/* YES BUTTON */
+
+function yes() {
+
+    document
+        .getElementById("result")
+        .style
+        .display = "block";
+
+
+    document
+        .getElementById("again")
+        .style
+        .display = "inline-block";
+
+
+    for (
+        let i = 0;
+        i < 35;
+        i++
+    ) {
+
+        let heart =
+            document.createElement("span");
+
+
+        heart.textContent = "💗";
+
+
+        heart.style.position =
+            "fixed";
+
+
+        heart.style.left =
+            Math.random() * 100 + "%";
+
+
+        heart.style.top =
+            Math.random() * 100 + "%";
+
+
+        heart.style.fontSize =
+            "24px";
+
+
+        document.body.appendChild(
+            heart
+        );
+
+
+        setTimeout(
+            () => heart.remove(),
+            1800
+        );
+
+    }
+
+}
+
+</script>
+
+</body>
+          </html>
